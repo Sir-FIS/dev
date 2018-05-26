@@ -62,7 +62,7 @@ def main():
     try:
         dictfile = open(wordlist,'r')
     except Exception as e:
-        print "Unable to open file, make sure you typed the correct filename.", e
+         print "Unable to open file, please make sure you typed the filename correctly.", e
         sys.exit()
  
        
