@@ -6,8 +6,8 @@ def usage():
     print "-v              |    Verbose"
     print "-h              |    Help"
     print "-H, --hash      |    Hash to crack"
-    print "-t --type       |    Supports: md5, sha1, sha224, sha256, sha384, sha512"
-    print "-d --dict       |    Wordlist"
+    print "-t, --type      |    Supports: md5, sha1, sha224, sha256, sha384, sha512"
+    print "-d, --dict      |    Wordlist"
     print "-i, --inputfile |    Input file of hashes"
     sys.exit()
    
@@ -24,7 +24,7 @@ def main():
     except getopt.GetoptError as err:
         print str(err)
         usage()
- 
+        sys.exit(2)
     for option, argument in options:
         if option in ("-h", "--help"):
             usage()  
@@ -39,7 +39,9 @@ def main():
  
         elif option in ("-i", "--inputfile"):
            input_hash_file = argument
-       
+        
+        else:
+          assert False, "unhandled option"
     if input_hash == "" or input_hash_type == "" or wordlist == "":
         usage()
  
